@@ -1,0 +1,263 @@
+/* Import SF Pro Display-like font for Apple-inspired aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font classes */
+.font-sf {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+@layer base {
+  :root {
+    /* Light neutral theme */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 20%; /* Dark gray text */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 0 0% 20%; /* Dark gray text */
+    --popover: 0 0% 100%; /* White popovers */
+    --popover-foreground: 0 0% 20%; /* Dark gray text */
+    --primary: 215 100% 50%; /* Blue */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+    --secondary: 220 15% 95%; /* Light gray */
+    --secondary-foreground: 0 0% 20%; /* Dark gray text */
+    --muted: 220 15% 95%; /* Light gray */
+    --muted-foreground: 0 0% 45%; /* Medium gray text */
+    --accent: 215 100% 50%; /* Blue for accents */
+    --accent-foreground: 0 0% 100%; /* White text on blue */
+    --destructive: 0 84% 60%; /* Red for errors */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+    --border: 220 15% 90%; /* Light gray borders */
+    --input: 220 15% 95%; /* Light gray input backgrounds */
+    --ring: 215 100% 50%; /* Blue ring for focus */
+
+    /* Chart colors - gold tones */
+    --chart-1: 41 100% 50%; /* Gold */
+    --chart-2: 41 100% 70%; /* Light gold */
+    --chart-3: 41 80% 30%; /* Dark gold */
+    --chart-4: 41 100% 90%; /* Very light gold */
+    --chart-5: 41 60% 40%; /* Muted gold */
+
+    /* Sidebar colors - black and gold */
+    --sidebar-background: 0 0% 0%; /* Pure black */
+    --sidebar-foreground: 0 0% 100%; /* White text */
+    --sidebar-primary: 41 100% 50%; /* Gold */
+    --sidebar-primary-foreground: 0 0% 0%; /* Black text on gold */
+    --sidebar-accent: 0 0% 15%; /* Dark gray */
+    --sidebar-accent-foreground: 41 100% 50%; /* Gold text */
+    --sidebar-border: 0 0% 15%; /* Dark gray border */
+    --sidebar-ring: 41 100% 50%; /* Gold ring */
+
+    --radius: 0rem; /* Square corners for modern, minimalist look */
+  }
+
+  .dark {
+    /* Dark mode is the same as light mode for this dark theme */
+    --background: 0 0% 0%; /* Pure black */
+    --foreground: 0 0% 100%; /* White */
+    --card: 0 0% 5%; /* Slightly lighter black for cards */
+    --card-foreground: 0 0% 100%; /* White text */
+    --popover: 0 0% 5%; /* Slightly lighter black for popovers */
+    --popover-foreground: 0 0% 100%; /* White text */
+    --primary: 41 100% 50%; /* Gold */
+    --primary-foreground: 0 0% 0%; /* Black text on gold */
+    --secondary: 41 100% 60%; /* Lighter gold */
+    --secondary-foreground: 0 0% 0%; /* Black text on lighter gold */
+    --muted: 0 0% 15%; /* Dark gray */
+    --muted-foreground: 0 0% 70%; /* Light gray text */
+    --accent: 41 100% 30%; /* Darker gold for accents */
+    --accent-foreground: 0 0% 100%; /* White text on darker gold */
+    --destructive: 0 84% 60%; /* Red for errors */
+    --destructive-foreground: 0 0% 100%; /* White text on red */
+    --border: 0 0% 15%; /* Dark gray borders */
+    --input: 0 0% 15%; /* Dark gray input backgrounds */
+    --ring: 41 100% 50%; /* Gold ring for focus */
+
+    /* Chart colors - gold tones */
+    --chart-1: 41 100% 50%; /* Gold */
+    --chart-2: 41 100% 70%; /* Light gold */
+    --chart-3: 41 80% 30%; /* Dark gold */
+    --chart-4: 41 100% 90%; /* Very light gold */
+    --chart-5: 41 60% 40%; /* Muted gold */
+
+    /* Sidebar colors - black and gold */
+    --sidebar-background: 0 0% 0%; /* Pure black */
+    --sidebar-foreground: 0 0% 100%; /* White text */
+    --sidebar-primary: 41 100% 50%; /* Gold */
+    --sidebar-primary-foreground: 0 0% 0%; /* Black text on gold */
+    --sidebar-accent: 0 0% 15%; /* Dark gray */
+    --sidebar-accent-foreground: 41 100% 50%; /* Gold text */
+    --sidebar-border: 0 0% 15%; /* Dark gray border */
+    --sidebar-ring: 41 100% 50%; /* Gold ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply antialiased bg-background text-foreground;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+
+  /* Enhanced spacing */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  /* Smooth animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Product card enhancements */
+  .product-card {
+    @apply transition-all duration-300 hover:shadow-xl;
+  }
+
+  .product-card img {
+    @apply transition-transform duration-500;
+  }
+
+  .product-card:hover img {
+    @apply scale-105;
+  }
+
+  /* Enhanced buttons */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 transition-all duration-300 
+           hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .container {
+      @apply px-4;
+    }
+    
+    .product-grid {
+      @apply grid-cols-2 gap-3;
+    }
+  }
+
+  /* Product card hover effects */
+  .product-card:hover .quick-view {
+    @apply opacity-100 transform translate-y-0;
+  }
+
+  .product-card .quick-view {
+    @apply opacity-0 transform translate-y-2 transition-all duration-200 ease-in-out;
+  }
+
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .slide-in {
+    animation: slideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .scale-in {
+    animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .gold-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gold-shimmer::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 215, 0, 0) 0%,
+      rgba(255, 215, 0, 0.1) 50%,
+      rgba(255, 215, 0, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shimmer 3s infinite;
+  }
+
+  /* Apple-inspired text style */
+  .apple-text {
+    font-weight: 200;
+    letter-spacing: -0.03em;
+  }
+
+  .luxury-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .luxury-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(41, 100%, 50%);
+    border-radius: 0;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 10%);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) rotate(30deg); }
+  }
+}
